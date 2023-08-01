@@ -15,6 +15,10 @@ declare module '@brightcove/react-player-loader' {
         type: 'video',
         id: string;
     };
+    type SuccessObject = {
+        type: 'in-page' | 'iframe';
+        ref: any;
+    }
     // this is key - `import React from 'react'` at the top of the file won't work - see https://stackoverflow.com/a/51114250
     const ReactPlayerLoader: import('react').ComponentType<{
         accountId: string;
@@ -25,7 +29,7 @@ declare module '@brightcove/react-player-loader' {
         attrs?: object;
         baseUrl?: string;
         manualReloadFromPropChanges?: boolean;
-        onSuccess?: () => void;
+        onSuccess?: (obj: SuccessObject) => void;
         onFailure?: () => void;
     }>;
     export default ReactPlayerLoader;
